@@ -30,10 +30,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/Documents/Personal/Projects/HaffardBankWebApp/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/mac/Documents/Personal/Projects/HaffardBankWebApp/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9XZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -53,3 +49,7 @@ build_metadata.AdditionalFiles.CssScope = b-2htw67jv8k
 [/Users/mac/Documents/Personal/Projects/HaffardBankWebApp/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-5e6iv4czkt
+
+[/Users/mac/Documents/Personal/Projects/HaffardBankWebApp/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-b1dj3ohgx7

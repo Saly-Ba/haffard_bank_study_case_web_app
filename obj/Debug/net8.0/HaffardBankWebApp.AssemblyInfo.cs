@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HaffardBankWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15c81e8e210833eef116b83beaced63f0bb18149")]
 [assembly: System.Reflection.AssemblyProductAttribute("HaffardBankWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HaffardBankWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

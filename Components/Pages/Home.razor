@@ -1,28 +1,166 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+
 @using HaffardBankWebApp.Services
 @using HaffardBankWebApp.Models
 
-<h3>Data from RESTful API</h3>
+<h3 class="h3 mx-auto">Welcome to Haffard Bank!</h3>
 
-@if (data != null)
+@if (loading)
 {
-    <ul>
-        <li>@data.Pin</li>
-    </ul>
+    <div class="loader-container">
+        <div class="loader"></div>
+        <div class="loader-text">Loading...</div>
+    </div>
+}
+else if (client != null)
+{
+    
+<div class="card">
+    <div class="infos">
+        <div class="image"></div>
+        <div class="info">
+            <div>
+                <p class="name">
+                    @client.FirstName @client.LastName
+                </p>
+                <p class="function">
+                    @client.Email 
+                </p>
+            </div>
+            @if (pin != null){
+                <div class="stats">
+                    <p class="flex flex-col">
+                        PIN
+                        <span class="state-value">
+                            @pin.Pin
+                        </span>
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+    @if (pin == null){
+        <button class="request" type="button" @onclick="GetPin">
+            See your PIN !
+        </button>
+    }
+    else 
+    {
+        <button class="request" type="button" @onclick="ChangeCardStatus">
+            @if( cardModel.IsActive){
+                <p>Deactivate Your Card !</p>
+            } else {
+                <p>Activate Your Card !</p>
+            }
+        </button>
+    }
+</div>
+
 }
 else
 {
-    <p>Loading data...</p>
+    <form class="form shadow p-3 mb-5 rounded mt-5">
+        <p class="title">Register</p>
+        <p class="message">Signup now and get full access to our app.</p>
+        <div class="flex-form">
+            <label>
+                <input required="" placeholder="" type="text" class="input" name="firstName" @bind="firstName">
+                <span>First Name</span>
+            </label>
+            <label>
+                <input required="" placeholder="" type="text" class="input" name="lastName" @bind="lastName">
+                <span>Last Name</span>
+            </label>
+        </div>
+        <label>
+            <input required="" placeholder="" type="email" class="input" name="email" @bind="email">
+            <span>Email</span>
+        </label>
+        <button type="button" class="submit" @onclick="RegisterClient">Submit</button>
+    </form>
 }
 
 @code {
-    private PinModel data;
+    private ClientModel? client;
+    private PinModel? pin;
+    private CardModel? cardModel;
+    private bool loading = false;
+
+    private string firstName = "";
+    private string lastName = "";
+    private string email = "";
+
+    private string changeStatus = "";
+
 
     [Inject]
     private ApiService ApiService { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    private async Task RegisterClient()
     {
-        data = await ApiService.Get<PinModel>("/api/card/pin/2");
+        loading = true;
+        StateHasChanged(); // Trigger UI update
+
+        try
+        {
+            var newClient = new ClientModel
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email
+            };
+
+            client = await ApiService.CreateClient(newClient);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+        finally
+        {
+            loading = false;
+            StateHasChanged(); // Ensure UI update after loading is complete
+        }
+
+        
+    }
+
+    private async Task GetPin()
+    {
+        try
+        {
+            pin = await ApiService.GetPin<PinModel>(client.Id);
+            cardModel = await ApiService.GetCard<CardModel>(client.Id);
+        }
+        catch (Exception ex)
+        {
+           Console.WriteLine($"Error: {ex.Message}");
+        }
+
+        Console.WriteLine($"The pin: {pin?.Pin}");
+    }
+
+    private async Task ChangeCardStatus()
+    {
+        
+        try
+        {
+            if(cardModel.IsActive){
+                await ApiService.DeactivateCard(cardModel.Id, pin);
+                cardModel = await ApiService.GetCard<CardModel>(cardModel.Id);
+            } 
+            else {
+                await ApiService.ActivateCard(cardModel.Id, pin);
+                cardModel = await ApiService.GetCard<CardModel>(cardModel.Id);
+            }
+
+            Console.WriteLine($"Hello World! : {cardModel.IsActive}");
+        }
+        catch (Exception ex)
+        {
+            
+            Console.WriteLine($"Error: {ex.Message}");
+        }
     }
 }

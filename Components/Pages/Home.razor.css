@@ -1,0 +1,360 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .title {
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }
+  
+  .title::before,.title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: royalblue;
+  }
+  
+  .title::before {
+    width: 18px;
+    height: 18px;
+    background-color: royalblue;
+  }
+  
+  .title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+  }
+  
+  .message, .signin {
+    color: rgba(88, 87, 87, 0.822);
+    font-size: 14px;
+  }
+  
+  .signin {
+    text-align: center;
+  }
+  
+  .signin a {
+    color: royalblue;
+  }
+  
+  .signin a:hover {
+    text-decoration: underline royalblue;
+  }
+  
+  .flex-form {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+  }
+  
+  .form label {
+    position: relative;
+  }
+  
+  .form label .input {
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+  }
+  
+  .form label .input + span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+  }
+  
+  .form label .input:placeholder-shown + span {
+    top: 15px;
+    font-size: 0.9em;
+  }
+  
+  .form label .input:focus + span,.form label .input:valid + span {
+    top: 30px;
+    font-size: 0.7em;
+    font-weight: 600;
+  }
+  
+  .form label .input:valid + span {
+    color: green;
+  }
+  
+  .submit {
+    border: none;
+    outline: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transform: .3s ease;
+  }
+  
+  .submit:hover {
+    background-color: rgb(56, 90, 194);
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+  .input {
+    color: #000;
+  }
+
+  .loader-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .loader {
+    width: 70px;
+    height: 70px;
+    position: relative;
+  }
+  
+  .loader:before {
+    content: "";
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 6px solid #007bff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: pulse 1s ease-in-out infinite;
+  }
+  
+  .loader:after {
+    content: "";
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    border-top-color: #007bff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: spin 2s linear infinite;
+  }
+  
+  .loader-text {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #007bff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.6);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0.6);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .content {
+    display: none;
+  }
+  
+  .loaded .loader-container {
+    display: none;
+  }
+  
+  .loaded .content {
+    display: block;
+  }
+  
+  .card {
+    max-width: 320px;
+    border-radius: 1rem;
+    background-color: rgba(31, 41, 55, 1);
+    padding: 1rem;
+  }
+  
+  .infos {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  .image {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 0.5rem;
+    background-color: rgb(118, 36, 194);
+    background: linear-gradient(to bottom right, rgb(118, 36, 194), rgb(185, 128, 240));
+  }
+  
+  .info {
+    height: 7rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .name {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .function {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgba(156, 163, 175, 1);
+  }
+  
+  .stats {
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgba(0, 0, 0, 1);
+  }
+  
+  .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 4px;
+  }
+  
+  .state-value {
+    font-weight: 700;
+    color: rgb(118, 36, 194);
+  }
+  
+  .request {
+    margin-top: 1.5rem;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    transition: all .3s ease;
+  }
+  
+  .request:hover {
+    background-color: rgb(118, 36, 194);
+    color: #fff;
+  }
+
+  /* The switch - the box around the slider */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+    margin-top: 50px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: #9fccfa;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    width: 2em;
+    inset: 0;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .switch input:checked + .slider {
+    background: #0974f1;
+  }
+  
+  .switch input:focus + .slider {
+    box-shadow: 0 0 1px #0974f1;
+  }
+  
+  .switch input:checked + .slider:before {
+    transform: translateX(1.6em);
+  }
+  
