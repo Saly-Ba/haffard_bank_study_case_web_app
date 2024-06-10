@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/mac/Documents/Personal/Projects/HaffardBankWebApp/obj/Debug/net8.0/scopedcss/projectbundle/HaffardBankWebApp.bundle.scp.css",
+      "PackagePath": "staticwebassets/HaffardBankWebApp.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/mac/Documents/Personal/Projects/HaffardBankWebApp/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/Users/mac/Documents/Personal/Projects/HaffardBankWebApp/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/mac/Documents/Personal/Projects/HaffardBankWebApp/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/mac/Documents/Personal/Projects/HaffardBankWebApp/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.HaffardBankWebApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.HaffardBankWebApp.props",
+      "PackagePath": "build\\HaffardBankWebApp.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.HaffardBankWebApp.props",
+      "PackagePath": "buildMultiTargeting\\HaffardBankWebApp.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.HaffardBankWebApp.props",
+      "PackagePath": "buildTransitive\\HaffardBankWebApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

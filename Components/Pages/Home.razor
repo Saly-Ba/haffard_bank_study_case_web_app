@@ -1,0 +1,28 @@
+﻿@page "/"
+@using HaffardBankWebApp.Services
+@using HaffardBankWebApp.Models
+
+<h3>Data from RESTful API</h3>
+
+@if (data != null)
+{
+    <ul>
+        <li>@data.Pin</li>
+    </ul>
+}
+else
+{
+    <p>Loading data...</p>
+}
+
+@code {
+    private PinModel data;
+
+    [Inject]
+    private ApiService ApiService { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        data = await ApiService.Get<PinModel>("/api/card/pin/2");
+    }
+}
